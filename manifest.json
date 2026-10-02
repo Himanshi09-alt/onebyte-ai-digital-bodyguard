@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "ONEBYTE – AI Digital Bodyguard",
+  "version": "2.0.0",
+  "description": "Privacy-first browser extension that explains website privacy risks before you share data.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

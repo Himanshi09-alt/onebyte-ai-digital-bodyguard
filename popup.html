@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONEBYTE — AI Digital Bodyguard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 4 39 10v12c0 10-6.2 18-15 22C15.2 40 9 32 9 22V10L24 4Z"/><path d="m17 24 5 5 10-12"/></svg>
+        </div>
+        <div>
+          <div class="eyebrow">ONEBYTE</div>
+          <h1>AI Digital Bodyguard</h1>
+        </div>
+      </div>
+      <div class="status-pill" id="liveStatus"><span></span> LIVE PROTECTION</div>
+    </header>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-item active" data-view="overview"><span class="ico" data-icon="shield"></span>Overview</button>
+      <button class="nav-item" data-view="scan"><span class="ico" data-icon="radar"></span>Scan</button>
+      <button class="nav-item" data-view="history"><span class="ico" data-icon="activity"></span>Risk History</button>
+      <button class="nav-item" data-view="insights"><span class="ico" data-icon="brain"></span>Insights</button>
+      <button class="nav-item" data-view="settings"><span class="ico" data-icon="settings"></span>Settings</button>
+    </nav>
+
+    <section class="view active" id="view-overview">
+      <section class="intro">
+        <div>
+          <div class="eyebrow">PRIVACY COMMAND CENTER</div>
+          <h2>Your privacy, explained before you decide.</h2>
+          <p>Know what a website may collect, track or share — in simple language.</p>
+        </div>
+        <button class="primary scan-trigger" id="scanBtn"><span class="ico" data-icon="radar"></span> Scan Current Website</button>
+      </section>
+
+      <section class="site-strip">
+        <div class="site-icon"><span class="ico" data-icon="globe"></span></div>
+        <div class="site-copy">
+          <span class="muted-label">CURRENT ENVIRONMENT</span>
+          <strong id="siteName">Detecting website…</strong>
+          <span id="scanMeta">Waiting for scan</span>
+        </div>
+        <div class="complete-badge" id="completeBadge"><span class="ico" data-icon="check"></span><span id="completeText">READY</span></div>
+      </section>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">PRIVACY SCORE</div>
+          <h3 id="heroLevel">Ready to scan</h3>
+          <p id="heroMessage">Scan the current page to see what your privacy may be exposed to.</p>
+          <div class="safe-note"><span class="ico" data-icon="lock"></span> Sensitive form values are never read.</div>
+        </div>
+        <div class="score-orbit" id="scoreOrbit">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="radar-sweep"></div>
+          <div class="score-ring">
+            <div class="score-value" id="score">--</div>
+            <div class="score-denom">/ 100</div>
+          </div>
+          <div class="shield-core"><span class="ico" data-icon="shield"></span></div>
+        </div>
+      </section>
+
+      <section class="section-head">
+        <div><div class="eyebrow">RISK OVERVIEW</div><h3>What the page is telling you</h3></div>
+        <span class="demo-chip">RULE-BASED PROTOTYPE</span>
+      </section>
+      <section class="risk-grid" id="riskGrid"></section>
+
+      <section class="why panel">
+        <div class="section-head compact">
+          <div><div class="eyebrow">CONTEXT, NOT COMMANDS</div><h3>Why am I seeing this?</h3></div>
+          <span class="ai-chip"><span class="ico" data-icon="brain"></span> AI EXPLANATION</span>
+        </div>
+        <div class="why-layout">
+          <div class="quote-box"><span class="muted-label">DETECTED SIGNAL</span><strong id="whySignal">Scan to reveal a signal</strong><span id="whyText">The Bodyguard connects each warning to visible text detected on the page.</span></div>
+          <div class="decision-box">
+            <div class="decision-row"><span>WHY</span><p id="whyWhy">No decision is being made for you.</p></div>
+            <div class="decision-row"><span>PRIVACY CONCERN</span><p id="whyConcern">Review the site's policy and the information requested.</p></div>
+            <div class="decision-row"><span>YOUR CHOICE</span><div class="choice-actions"><button class="ghost" id="reviewBtn">Review finding</button><button class="ghost" id="policyBtn">Open policy</button></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="insight-panel panel">
+        <div class="section-head compact"><div><div class="eyebrow">AI PRIVACY INSIGHTS</div><h3>Signals worth your attention</h3></div></div>
+        <div id="insightsList" class="insights-list"></div>
+      </section>
+
+      <section class="design-grid">
+        <article class="privacy-design panel">
+          <div class="eyebrow">PRIVACY BY DESIGN</div>
+          <h3>Built to minimize exposure.</h3>
+          <div class="principle"><span class="principle-icon"><span class="ico" data-icon="lock"></span></span><div><b>Sensitive values ignored</b><small>Passwords, OTPs and card fields are excluded.</small></div></div>
+          <div class="principle"><span class="principle-icon"><span class="ico" data-icon="scan"></span></span><div><b>Minimal processing</b><small>Only relevant visible webpage text is analyzed.</small></div></div>
+          <div class="principle"><span class="principle-icon"><span class="ico" data-icon="settings"></span></span><div><b>User control</b><small>You choose when a scan happens.</small></div></div>
+          <div class="principle"><span class="principle-icon"><span class="ico" data-icon="check"></span></span><div><b>Explainable findings</b><small>Every warning is connected to a detected signal.</small></div></div>
+        </article>
+        <article class="activity panel">
+          <div class="section-head compact"><div><div class="eyebrow">PRIVACY ACTIVITY</div><h3>Recent scan pattern</h3></div><span class="demo-chip">DEMO DATA</span></div>
+          <div class="mini-chart"><svg viewBox="0 0 520 150" preserveAspectRatio="none"><path class="gridline" d="M0 120H520M0 80H520M0 40H520"/><path id="chartPath" class="chart-line" d="M0 105 C50 90 70 100 105 75 S160 85 205 60 S260 70 300 48 S360 60 400 35 S470 55 520 25"/></svg></div>
+          <div class="chart-legend"><span><i></i> Privacy score</span><span>Illustrative demo history</span></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view" id="view-scan">
+      <div class="page-title"><div class="eyebrow">SECURITY SCANNER</div><h2>Inspect the current page.</h2><p>Visible privacy-related content is checked locally by the extension's rule engine.</p></div>
+      <div class="scanner panel">
+        <div class="scanner-visual" id="scannerVisual"><div class="scanner-ring"></div><div class="scanner-center"><span class="ico" data-icon="shield"></span></div></div>
+        <div class="scanner-copy"><div class="eyebrow">LIVE SCAN</div><h3 id="scanStage">Ready</h3><p id="scanDetail">Start a scan to analyze the current webpage.</p><div class="scan-steps" id="scanSteps"></div><button class="primary scan-trigger" id="scanBtn2"><span class="ico" data-icon="radar"></span> Start Scan</button></div>
+      </div>
+      <div class="technical-flow panel"><div class="eyebrow">TECHNICAL FLOW</div><div class="flow"><span>Browser Extension</span><b>↓</b><span>Visible Privacy Content</span><b>↓</b><span>Analysis Engine</span><b>↓</b><span>Risk Classification</span><b>↓</b><strong>Score + Explanation</strong></div><p>HTML · CSS · JavaScript · optional Python/FastAPI · AI/NLP API</p></div>
+    </section>
+
+    <section class="view" id="view-history">
+      <div class="page-title"><div class="eyebrow">RISK HISTORY</div><h2>Your recent scans.</h2><p>Stored locally in the extension for this prototype.</p></div>
+      <div id="historyList" class="timeline"></div>
+    </section>
+
+    <section class="view" id="view-insights">
+      <div class="page-title"><div class="eyebrow">PRIVACY INSIGHTS</div><h2>Understand the signals.</h2><p>Findings are explanations, not instructions. The decision stays with you.</p></div>
+      <div id="fullInsights" class="full-insights"></div>
+    </section>
+
+    <section class="view" id="view-settings">
+      <div class="page-title"><div class="eyebrow">CONTROLS</div><h2>Privacy-first settings.</h2><p>Simple controls for the prototype's scanning behavior.</p></div>
+      <div class="settings panel">
+        <label class="setting"><span><b>Scan visible webpage text</b><small>Exclude inputs, textareas, selects, buttons, scripts and iframes.</small></span><input id="scanVisibleToggle" type="checkbox" checked></label>
+        <label class="setting"><span><b>Save local risk history</b><small>Keep recent scan scores in chrome.storage.local.</small></span><input id="historyToggle" type="checkbox" checked></label>
+        <div class="privacy-note"><span class="ico" data-icon="lock"></span><div><b>Privacy boundary</b><p>This prototype does not read typed password, OTP, card or other form values.</p></div></div>
+      </div>
+    </section>
+
+    <footer>ONEBYTE · AI DIGITAL BODYGUARD <span>•</span> Know What You Share Before It Becomes a Risk.</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
